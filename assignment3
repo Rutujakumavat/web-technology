@@ -1,0 +1,32 @@
+const fs=require('fs');
+
+const inputfile='input.txt';
+const outputfile='output.txt';
+
+fs.writeFile('input.txt','hello i am rutuja kumavat fymca',function(err)
+{
+    if(err)throw err;
+    console.log('saved!');
+});
+
+fs.readFile(inputfile,'utf8',(err,data)=>
+    {
+        if(err)
+        {
+            console.error("error in reading file");
+            return;
+        }
+        
+const uppercaseText=data.toUpperCase();
+    
+fs.writeFile(outputfile,uppercaseText,(err)=>
+    {
+        if(err)
+        {
+            console.error("error in writing output file");
+            return;
+        }
+            console.error("text converted to uppercase and written to output file successfully!");
+            return;
+        });
+});
